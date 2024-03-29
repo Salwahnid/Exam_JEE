@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:outputLabel value="Employe List"/>
+   <h:commandButton value="Add Employe" action="#{userBean.previousPage}" class="btn btn-link"  />
+   <h:commandButton value="Back to Home" action="#{userBean.previousPage}" class="btn btn-link"  />
+
+    <h:head>
+       <h:outputStylesheet library="webjars" name="bootstrap/5.3.2/css/bootstrap.css"/>
+       <h2>Bienvenu</h2>
+    </h:head>
+    <h:body>
+
+       <h:form>
+
+          <h:dataTable id="table" var="user" value="#{embean.employes}" border="1" styleClass="table table-success table-striped-columns" ><!--class="table table-striped " rowClasses="odd-row, even-row"-->
+
+
+             <h:column><f:facet name="header">ID</f:facet>
+                <h:outputText value="#{user.id}" />
+             </h:column>
+             <h:column><f:facet name="header">Name</f:facet>
+                <h:outputText value="#{user.name}" />
+             </h:column>
+             <h:column><f:facet name="header">email</f:facet>
+                <h:outputText value="#{user.budget}" />
+             </h:column>
+             <h:column><f:facet name="header">skill</f:facet>
+                <h:outputText value="#{user.skill}" />
+             </h:column>
+             <h:column><f:facet name="header">project</f:facet>
+                <h:outputText value="#{user.projet.name}" />
+             </h:column>
+
+             <h:column>
+                <f:facet name="header">Actions</f:facet>
+                <h:commandButton value="Delete" action="#{embean.deleteEmploye(user.id)}" >
+                </h:commandButton>
+             </h:column>
+
+
+
+
+
+
+
+
+          </h:dataTable>
+
+
+
+
+       </h:form>
+    </h:body>
+
+
+</html>
+
+
